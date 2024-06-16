@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Mistrully';
+    src: url('/fonts/mistrully/mistrully.woff2') format('woff2'),
+        url('/fonts/mistrully/mistrully.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

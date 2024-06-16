@@ -1,0 +1,72 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Steps from '~/components/widgets/Steps.astro';
+const mediumDate = dateObj =>
+
+    Intl.DateTimeFormat('default', { timeZone: 'America/Chicago', dateStyle: 'medium' }).format(new Date(dateObj.dateTime ?? dateObj.date))
+
+  const shortTime = dateObj =>
+    Intl.DateTimeFormat('default', { timeZone: 'America/Chicago', timeStyle: 'short' }).format(new Date(dateObj.dateTime))
+
+  const endpoint = 'https://www.googleapis.com/calendar/v3';
+  const apiKey = 'AIzaSyDu6TqSwbh6Z_iG9AaKPphCOEdNhzQ6k54'; // TODO: add to config
+  const calendarUrl = 'qm0sqo3upimojokpktd3tp0qp4@group.calendar.google.com'
+  const timeMin = new Date().toISOString();
+  const data = await fetch(
+    `${endpoint}/calendars/${calendarUrl}/events?key=${apiKey}&timeMin=${timeMin}&orderBy=startTime&singleEvents=true`
+  ).then(data => data.json());
+
+---
+<Layout>
+    <style>
+        table {
+          max-width: 760px;
+          margin: auto;
+        }
+    
+        td {
+          line-height: 1.75;
+          text-align: start;
+        }
+    
+        td:first-child {
+            white-space: nowrap;
+            text-align: end;
+        }
+    
+        td:only-child {
+          text-align: center;
+        }
+    
+        .description {
+          word-break: break-word;
+        }
+      </style>
+    
+      <table>
+        {data?.items?.length
+          ? data.items.map(({ start, summary, description, htmlLink }) =>
+            <tr>
+              <td>
+                {mediumDate(start)}
+                <br />
+                { start.dateTime ? shortTime(start) : '' }
+              </td>
+              <td>
+                <div>
+                  <a href={htmlLink}>{summary}</a>
+                </div>
+                <div class='description' set:html={description ?? ''}></div>
+              </td>
+            </tr>
+          )
+          : <tr><td>No upcoming events are currently listed</td></tr>
+        }
+      </table>
+      <Steps
+        title='Upcoming Events'
+        items={[
+            
+        ]}
+      />
+</Layout>

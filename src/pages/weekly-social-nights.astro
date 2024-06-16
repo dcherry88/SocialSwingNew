@@ -1,0 +1,107 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Image from 'astro/components/Image.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features from '~/components/widgets/Features.astro';
+import { map } from 'astro/zod';
+import Steps from '~/components/widgets/Steps.astro';
+
+const metadata = {
+  title: 'Weekly Social Nights',
+  ignoreTitleTemplate: true,
+};
+const SSDarkImg = '~/assets/images/SS Dark.png';
+const SSLightImg = '~/assets/images/SS Light.png';
+---
+
+<Layout metadata={metadata}>
+
+    <Hero>
+        <Fragment slot="title">
+            <span class="font-mistrully text-socialswingblue dark:text-white">Weekly Social Nights</span>
+        </Fragment>
+        <Fragment slot="content">
+            <p class="text-lg text-socialswingblue dark:text-gray-300">
+            Our social dance nights need to be seen to be believed!  Boasting participation from a wide array of age groups and experience levels, we offer one of the most affordable and welcoming entertainment options in the city. We have a rotation of excellent group class instructors, a carefully curated course curriculum, and fantastic DJs.
+            </p>
+        </Fragment>
+    </Hero>
+    <Content
+        title="Location"
+        isReversed
+        isDark={false}
+        classes={{
+            title: 'text-black dark:text-white',
+        }}
+        items={[
+        {
+            description:
+            'The location for both Tuesdays and Thursdays is Cabaret Arts & Social Theatre, located near 91st & Metcalf',
+            icon: 'tabler:location',
+        }
+        ]}
+        image={{
+        src: '~/assets/images/castexternal.jpg',
+        alt: 'CAST Exterior',
+        }}
+    >
+    <Fragment slot="content">
+        <h3 class="text-2xl font-bold tracking-tight text-socialswingblue dark:text-white sm:text-3xl mb-2">Cabaret Arts & Social Theatre</h3>
+        <p class="text-lg text-socialswingblue dark:text-gray-300">
+            9050 Metcalf Ave.
+            <br />
+            Overland Park, KS 66212
+        </p>
+    </Fragment>
+    </Content>
+    <Steps
+        title="Tuesday - 7-8 pm Rotating Content (see below)"
+        subtitle="The content of the first part of the Tuesday schedule, typically from 7-8 pm, rotates from week to week. Social dance time follows till 9:30 pm each week."
+        items={[
+            {
+                title: 'Week 1 - Leveled Classes (Levels 1 & 2)'
+            },
+            {
+                title: 'Week 2 - Leveled Classes (Levels 1 & 2; Level 2 will have a "Move of the Month" this week)'
+            },
+            {
+                title: 'Week 3 - Open Practice'
+            },
+            {
+                title: 'Week 4 - Mini Instructor Lessons'
+            },
+            {
+                title: 'Week 5 (if applicable) - Open Practice'
+            },
+        ]}
+        image={{
+            src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+            alt: 'Steps image',
+          }}
+    />
+    <Steps
+        isReversed
+        title="Thursday - 7-8:30 pm "
+        subtitle="Thursday nights are a bit more structured, with a 7-8:30 pm class followed by social dance time till 11 pm. The first 30mins serves as a warm-up and practice time for all levels. The class content follows at 7:30 pm."
+        items={[
+            {
+                title: 'Level 1 - Brand new or recently new to West Coast Swing'
+            },
+            {
+                title: 'Level 2 - Comfortable with the basics and ready to learn more. *Note* Moving into Level 2 requires passing a Level 1 test.'
+            },
+            {
+                title: 'Level 3 - Ready to learn more advanced concepts and styling. *Note* Moving into Level 3 requires passing a Level 2 test.'
+            }
+        ]}
+        image={{
+            src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+            alt: 'Steps image',
+          }}
+    />
+
+
+</Layout>

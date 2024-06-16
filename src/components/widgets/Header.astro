@@ -30,8 +30,8 @@ export interface Props {
   isDark?: boolean;
   isFullWidth?: boolean;
   showToggleTheme?: boolean;
-  showRssFeed?: boolean;
   position?: string;
+  socialLinks?: Array<Link>;
 }
 
 const {
@@ -42,8 +42,8 @@ const {
   isDark = false,
   isFullWidth = false,
   showToggleTheme = false,
-  showRssFeed = false,
   position = 'center',
+  socialLinks = [],
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
@@ -62,10 +62,10 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     class:list={[
       'relative text-default py-3 px-3 md:px-6 mx-auto w-full',
       {
-        'md:flex md:justify-between': position !== 'center',
+        'md:flex md:justify-between': position !== 'left',
       },
       {
-        'md:grid md:grid-cols-3 md:items-center': position === 'center',
+        'md:grid md:grid-cols-3 md:items-center': position === 'left',
       },
       {
         'max-w-7xl': !isFullWidth,
@@ -138,14 +138,23 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         <div class="flex">
           {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
           {
-            showRssFeed && (
-              <a
-                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                aria-label="RSS Feed"
-                href={getAsset('/rss.xml')}
-              >
-                <Icon name="tabler:rss" class="w-5 h-5" />
-              </a>
+            socialLinks?.length ? (
+              <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
+                {socialLinks.map(({ ariaLabel, href, text, icon }) => (
+                  <li>
+                    <a
+                      class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                      aria-label={ariaLabel}
+                      href={href}
+                    >
+                      {icon && <Icon name={icon} class="w-5 h-5" />}
+                      <Fragment set:html={text} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              ''
             )
           }
         </div>
@@ -160,6 +169,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             ''
           )
         }
+        
       </div>
     </div>
   </div>
