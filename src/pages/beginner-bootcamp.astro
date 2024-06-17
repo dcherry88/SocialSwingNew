@@ -1,0 +1,50 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro'; 
+const metadata = {
+  title: 'Beginner Bootcamp',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+    <Hero
+      image={{
+        src: '~/assets/images/beginner bootcamp small.png',
+        alt: 'beginner bootcamp',
+        }}
+    >
+        <Fragment slot="title">
+          <span class="font-mistrully text-socialswingblue dark:text-white">West Coast Swing: Beginner Bootcamp</span>
+        </Fragment>
+        <Fragment slot="subtitle">
+          <span class="text-socialswingblue dark:text-white"><a href="https://www.eventbrite.com/e/west-coast-swing-beginner-bootcamp-and-dance-party-tickets-921918522117?aff=ebdsoporgprofile">Click Here to get your tickets now at Eventbrite!</a></span>
+        </Fragment>
+      </Hero>
+    <Hero>
+      <Fragment slot="content">
+        <p class="text-lg text-socialswingblue dark:text-gray-300">
+          Join us for an information-packed, fun-filled West Coast Swing Beginner Bootcamp and learn the basics of West Coast Swing in 3 hours! Whether you're a total newbie or just looking to brush up on your basics (including if you are ready to try dancing as your non-primary role!), then this event is perfect for you! From Bootcamp to Dance Party, this day is for dancers and not-yet-dancers who are looking to connect with other humans while we all move to the music. 
+        </p></br>
+        <p class="text-lg text-socialswingblue dark:text-gray-300"><em>
+          Cultural Note: Social dancing is an activity that uses physical touch and connection, so our community highly upholds the cultural values of consent, empathy, and duality. These standards are how we human both on and off the dance floor, and are values we expect of all participants, both new and experienced. </em></p>
+        <p class="text-lg text-socialswingblue dark:text-gray-300">
+          Internationally-renowned Champion-level dancers Jesse Lopez and Ariel Peck will guide you through all the fundamental moves, grooves, and dance steps you need to help you feel confident and competent as you join us on the dance floor. Learn about how dance is a language and how you can speak it with the Body Language Curriculum (BLC), a uniquely-designed educational program with the sole purpose of helping “Oh no, I don’t dance” dancers dance anyway! The BLC uses cutting-edge Efficient Language Learning techniques to expedite the journey from having “2 left feet” to having all the right moves. 
+        </p></br>
+        <p class="text-lg text-socialswingblue dark:text-gray-300">
+          Don't miss this unique opportunity to Fast Pass through the equivalent of 8 weeks of classes in a single Saturday afternoon! Then join us in the parking lot for a dinner break (food is included with your full event pass; please let us know dietary restrictions on the ticketing purchase page). After connecting with your fellow dancers over food, return to the ballroom for a night of social dancing (also included with your pass) using your newly-learned skills! 
+        </p></br>
+        <p class="text-lg text-socialswingblue dark:text-gray-300">
+          Full Event Schedule:
+          <ul>
+            <li>3-6 pm Beginner Bootcamp</li>
+            <li>Class 1 - Grammar: Language Foundations</li> 
+            <li>Class 2 - Vocabulary: Moves and Grooves</li>
+            <li>Class 3 - Communication: Practicing Swingversation</li>
+            <li>6-8 pm Dinner Break (food included with beginner bootcamp pass)</li>
+          </ul>
+        </p></br>
+      </Fragment>
+    />
+</Layout>

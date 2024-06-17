@@ -7,6 +7,10 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
+      text: 'Beginner Bootcamp - July 13 2024',
+      href: getPermalink('/beginner-bootcamp'),
+    },
+    {
       text: 'Weekly Social Nights',
       href: getPermalink('/weekly-social-nights'),
     },
