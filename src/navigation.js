@@ -23,6 +23,10 @@ export const headerData = {
       href: getPermalink('/instructors'),
     }
   ],
+  socialLinks: [
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/socialswingkc/' },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/groups/socialswingkc' },
+  ]
 };
 
 export const footerData = {
