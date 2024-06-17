@@ -1,9 +1,29 @@
 ---
-import { SITE } from 'astrowind:config';
+//import { SITE } from 'astrowind:config';
+//import Image from '~/components/common/Image.astro';
+import { Image } from 'astro:assets';
+import lightLogo from "~/assets/images/sslogodark.png";
+import darkLogo from "~/assets/images/sslogolight.png";
 ---
 
 <span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
+  class="block dark:hidden self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
 >
-  {SITE?.name}
+<Image
+   src={lightLogo}
+   width = {lightLogo.width / 8}
+   alt="lightlogo"
+   />
+
+</span>
+
+<span
+  class="hidden dark:block block dark:hiddenself-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
+>
+<Image
+   src={darkLogo}
+   width = {darkLogo.width / 8}
+   alt="darklogo"
+   />
+
 </span>

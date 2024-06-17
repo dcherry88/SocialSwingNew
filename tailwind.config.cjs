@@ -16,6 +16,7 @@ module.exports = {
       fontFamily: {
         mistrully: ['Mistrully', "sans-serif"],
         poppins: ['Poppins', "sans-serif"],
+        comfortaa: ['Comfortaa', "sans-serif"],
         sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
         serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
         heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
