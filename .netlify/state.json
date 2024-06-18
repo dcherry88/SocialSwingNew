@@ -1,0 +1,20 @@
+{
+	"siteId": "90ed5d31-f0a1-46fe-aefe-dc90f0b2d2ad",
+	"geolocation": {
+		"data": {
+			"city": "Overland Park",
+			"country": {
+				"code": "US",
+				"name": "United States"
+			},
+			"subdivision": {
+				"code": "KS",
+				"name": "Kansas"
+			},
+			"timezone": "America/Chicago",
+			"latitude": 38.867,
+			"longitude": -94.7094
+		},
+		"timestamp": 1718678608206
+	}
+}
