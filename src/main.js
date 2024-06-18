@@ -1,5 +1,5 @@
 
-import './src/assets/styles/tailwind.css'
+import './assets/styles/tailwind.css'
 
 const eventContainer = document.querySelector('#events-container');
 const eventAmtToFetch = document.querySelector('#eventAmt');

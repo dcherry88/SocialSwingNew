@@ -1,1 +1,1 @@
-module.exports = require('./functions/calFetch.js')
+module.exports = require('./netlify/functions/calFetch.js')
