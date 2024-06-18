@@ -1,22 +1,46 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Steps from '~/components/widgets/Steps.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import { headerData } from '~/navigation';
+
 const metadata = {
   title: 'Upcoming Events',
   ignoreTitleTemplate: true,
 };
 ---
 <Layout>
-      <Steps
-        items={[
-          {
-            title: '<a href="https://www.google.com/calendar/event?eid=djQ5MWZpM2xkMG5uOTNuNmlmbm5pOHMwbzQgcW0wc3FvM3VwaW1vam9rcGt0ZDN0cDBxcDRAZw">Jun 17, 2024 - Modern Swing Monday</a>',
-            description: "<p>Come dance with us! No experience or dance partner necessary.</br>The $15 entry includes classes and social dancing. Cash, Venmo, or credit cards accepted. Learn, dance, and socialize with us at El Torreon. You'll get to learn and practice west coast swing at class time, then mix and mingle during social dancing.</br></br><ul style='list-style-type:circle'><li>Doors open at 5:45 pm; arrive early and warm up before class.</li><li>Isaiah's Partnership Masterclass 6:00 PM to 7:00 PM. (One Month Special Series)</li><li>Beginner Intro to West Coast Swing Class 7:00 PM to 7:30 PM.</li><li>Social Dance from 7 PM to 10 PM.</li></ul></br>Isaiah's Partnership Masterclass:  Do you want to be sure you're about to have a good dance no matter who you're partnered with? You can solidify your dance partnership before the music even starts to play. In this 4-week series, you'll learn how to connect & create with other dancers. Whether you're looking for ways to have more connected social dances or you're building your Jack and Jill competition strategy, these classes will help. Look for tips on technique, mindset, and style.Parking is available on site. Please refrain from smoking, vaping, or consuming alcohol in the building.</p>",
-          },
-          {
-            title: '<a href="https://www.google.com/calendar/event?eid=YjU3ZmRkdGFlb29nZGZkYzI4NzR0dTE2MTQgcW0wc3FvM3VwaW1vam9rcGt0ZDN0cDBxcDRAZw">Jun 21, 2024 - West Coast Swing Social</a>',
-            description: "<p>Get ready for an electrifying evening with Kansas City Dance Club and KC Modern Swing!</br>We're hosting a West Coast Swing Dance Social thats all about modern vibes and cool moves.</br>This event is for everyone, whether you're a dance pro or just stepping onto the floor for the first time. Join us for a beginner-friendly dance lesson at 7:30 PM, where our approachable instructors will help you master the basics of West Coast Swing. No previous experience? No worries! We're here to make sure you have fun and feel confident.</br>The real party starts at 8:00 PM when the dance floor opens. We'll be spinning a mix of the latest hits and timeless tracks, creating the perfect atmosphere for both new learners and experienced dancers.</br></br>Entry is $10, but it's free for KCDC members. Remember, you need to be 21+ for any alcoholic drinks. It's more than just a dance night; it's a chance to immerse yourself in the vibrant West Coast Swing community. So, put on your dancing shoes, bring your friends, and get ready to swing the night away in style. See you on the dance floor! We will try to westiebomb The Ship afterwards!</p>",
-          }
-        ]}
-      />
+  <HeroText>
+    <Fragment slot="title">
+        <span class="font-Josefin text-socialswingblue dark:text-gray-300">Upcoming Events</span>
+    </Fragment>
+</HeroText>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body class="bg-gray-300 dark:socialswingblue p-4 md:p-6 lg:p-8 min-h-screen grid gap-4 md:gap-6 lg:gap-8 text-socialswingblue dark:text-gray-300 grid-rows-auto1">
+      <header class="text-center grid p-4 place-items-center content-center">
+        <label for="eventAmt">Events to Show:</label>
+        <p id="rangeValue">9</p>
+        <input type="range" id="eventAmt" min="1" value="9" max="20" class="socialswingblue cursor-grab" oninput="rangeValue.innerText = this.value">
+        
+      </header>
+      <main class="max-w-6xl w-full mx-auto">
+        <section class="grid gap-4 pb-10 pl-20 pr-20 md:gap-6 lg:gap-8 items-start grid-cols-cards" id="events-container">
+          <div class="flex gap-3 items-center text-socialswingblue dark:text-gray-300 mx-auto">
+            <svg class="animate-spin h-8 w-8" width="20" viewBox="0 0 155 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle class="opacity-25" cx="77.5" cy="77.5" r="60" stroke="currentColor" stroke-width="10" />
+              <path d="M120.329 35.48a59.998 59.998 0 0 1 6.712 75.868" class="opacity-75" stroke="currentColor" stroke-width="10" />
+            </svg>
+            <p class="text-center text-3xl animate-pulse">Loading Events</p>
+          </div>
+        </section>
+      </main>
+      <script type="module" src="/main.js"></script>
+    </body>
+  </html>
 </Layout>

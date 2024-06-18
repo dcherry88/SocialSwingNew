@@ -1,6 +1,7 @@
 [build]
   publish = "dist"
   command = "npm run build"
+  functions = '/functions'
 [build.processing.html]
   pretty_urls = false
 [[headers]]
