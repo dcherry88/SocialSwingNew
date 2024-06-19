@@ -139,7 +139,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
           {
             socialLinks?.length ? (
-              <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
+              <ul class="flex md:order-1 -ml-2 md:ml-4 md:mb-2 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
                 {socialLinks.map(({ ariaLabel, href, text, icon }) => (
                   <li>
                     <a
@@ -148,7 +148,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                       href={href}
                       target="_blank"
                     >
-                      {icon && <Icon name={icon} class="w-5 h-5" />}
+                      {icon && <Icon name={icon} class="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
                       <Fragment set:html={text} />
                     </a>
                   </li>
