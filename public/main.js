@@ -1,5 +1,6 @@
 
-import './assets/styles/tailwind.css'
+//import './assets/styles/tailwind.css'
+import '../src/assets/styles/tailwind.css'
 
 
 const eventContainer = document.querySelector('#events-container');
@@ -60,7 +61,7 @@ function mapEventObject(event){
 
 function createEvent(e, i){
   const colors = ['blue', 'amber', 'rose', 'indigo', 'pink'];
-  const colorScheme = colors[getRandomNumBetween(0, colors.length - 1)]
+//  const colorScheme = colors[getRandomNumBetween(0, colors.length - 1)]
   return `<article class="bg-[#bfbeba] dark:bg-slate-800 shadow-xl dark:socialswingblue rounded-lg">
           <div class="p-3 shadow bg-[#bfbeba] dark:bg-slate-800 dark:text-gray-300 text-socialswingblue uppercase grid place-items-center rounded-t-lg">
             <div class="text-sm">${e.start.month}</div>
