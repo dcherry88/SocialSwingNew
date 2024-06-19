@@ -1,6 +1,7 @@
 
 import './assets/styles/tailwind.css'
 
+
 const eventContainer = document.querySelector('#events-container');
 const eventAmtToFetch = document.querySelector('#eventAmt');
 
@@ -96,6 +97,7 @@ function createEvent(e, i){
 }
 
 async function loadEvents(max=8){
+  console.log(`Loading ${max} events`);
   try {
     const endpoint = await fetch(`./.netlify/functions/calFetch?maxResults=${max}`);
     const data = await endpoint.json();
@@ -106,7 +108,9 @@ async function loadEvents(max=8){
     console.log(e);
   }
 }
-loadEvents();
+
+loadEvents(9);
+
 
 eventContainer.addEventListener('click', (e) =>{
   if(e.target.hasAttribute('aria-expanded')){
@@ -116,3 +120,9 @@ eventContainer.addEventListener('click', (e) =>{
   }
 })
 eventAmtToFetch.addEventListener('change', (e) => loadEvents(eventAmtToFetch.value))
+
+window.addEventListener('astro:load', () => {
+  console.log('Astro is loaded');
+  loadEvents(9);
+});
+
