@@ -2,9 +2,9 @@
 //import './assets/styles/tailwind.css'
 //import '../src/assets/styles/tailwind.css'
 
-
 const eventContainer = document.querySelector('#events-container');
 const eventAmtToFetch = document.querySelector('#eventAmt');
+
 
 // const getRandomNumBetween = (min, max) => Math.floor(Math.random() * (max-min +1)) + min;
 const getMonth = (month) => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][month];
@@ -58,7 +58,6 @@ function mapEventObject(event){
     link: event.htmlLink,
   }
 }
-
 function createEvent(e, i){
 //  const colors = ['blue', 'amber', 'rose', 'indigo', 'pink'];
 //  const colorScheme = colors[getRandomNumBetween(0, colors.length - 1)]
@@ -97,6 +96,7 @@ function createEvent(e, i){
         </article>`
 }
 
+
 async function loadEvents(max=8){
   console.log(`Loading ${max} events`);
   try {
@@ -110,8 +110,8 @@ async function loadEvents(max=8){
   }
 }
 
-loadEvents(9);
 
+loadEvents();
 
 eventContainer.addEventListener('click', (e) =>{
   if(e.target.hasAttribute('aria-expanded')){
@@ -121,6 +121,4 @@ eventContainer.addEventListener('click', (e) =>{
   }
 })
 eventAmtToFetch.addEventListener('change', (e) => loadEvents(eventAmtToFetch.value))
-
-
 

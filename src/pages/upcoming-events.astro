@@ -1,6 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
+export const prerender = false
 const mainscript = 'main.js';
 ---
 <Layout>
@@ -11,7 +12,6 @@ const mainscript = 'main.js';
 </HeroText>
   <html lang="en">
     <head>
-      <meta charset="UTF-8" />
       <link rel="icon" type="image/svg+xml" href="favicon.svg" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
@@ -33,7 +33,8 @@ const mainscript = 'main.js';
           </div>
         </section>
       </main>
-      <script type="module" src={mainscript}></script>
+      <script type="module" src={mainscript}>
+      </script>
     </body>
   </html>
 </Layout>

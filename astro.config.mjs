@@ -25,7 +25,10 @@ const whenExternalScripts = (items = []) =>
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
-  output: 'static',
+  prefetch: {
+    prefetchAll: true
+  },
+  output: 'hybrid',
 
   integrations: [
     tailwind({
